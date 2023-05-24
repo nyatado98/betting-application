@@ -1,0 +1,23 @@
+{
+    "games": [{
+            "start_time": "14:30 pm Sat 17/04",
+            "game_id": "1000",
+            "team_1": "Tottenham",
+            "team_2": "Chelsea",
+            "one_odds": "2.34",
+            "two_odds": "3.80",
+            "draw_odds": "3.54",
+            "football_league": "England/English-premear league"
+        },
+        {
+            "start_time": "14:30 pm Sat 17/04",
+            "game_id": "1001",
+            "team_1": "Arsenal",
+            "team_2": "Liverpool",
+            "one_odds": "2.34",
+            "two_odds": "3.80",
+            "draw_odds": "3.54",
+            "football_league": "England/English-premear league"
+        }
+    ]
+}
