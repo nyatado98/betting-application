@@ -161,17 +161,12 @@
 <!-- <div class="col-md-12 d-flex "> -->
 
 		<div class="row ">
-		<a href="#" class="text-white  mb-2 mt-3 font-weight-bold" data-toggle="modal" data-target="#Modal" style="font-size: 11px">SPORT</a>
-		<!-- modal -->
-		
-		<a href="{{url('virtual')}}" class="text-white mb-3 mt-3 m-2 font-weight-bold" style="font-size: 11px">VIRTUAL</a>
-		<a href="{{url('jackpot')}}" class="text-white mb-3 mt-3 m-2 font-weight-bold" style="font-size: 11px">JACKPOT</a>
-	
+			<h2 class="p-3"><a href="{{url('/')}}" style="text-decoration: none;"><i><span class="font-weight-bold text-white mx-2" style="font-size: 45px">bet</span><span class="font-weight-bold" style="color:lawngreen;margin-left: -10px;font-size: 45px">Pawa</span></i></a></h2>
 		<!-- <div class="col-md-5"></div> -->
 	</div>
 		<div class="row">
 		<p onclick="search()" class="text-white mb-3 mt-3 font-weight-bold" style="cursor: pointer;float: right;font-size: 11px">SEARCH</p>
-		<a href="" class="text-white mb-3 mt-3 m-2 font-weight-bold" data-toggle="modal" data-target="#menu" style="font-size: 11px">MENU</a>
+		<a href="" class="text-white mb-3 mt-3 m-2 font-weight-bold p-3" data-toggle="modal" data-target="#menu" style="font-size: 20px">MENU</a>
 		<!-- <input type="submit" name="" class="btn mt-3 mb-4 mx-1 text-dark font-weight-bold" value="Slip {{0}}" data-toggle="modal" data-target="#myModal">
  -->        
  <!-- <div class="betslip"> -->
@@ -189,7 +184,42 @@
 </div>
 <div class="container col-md-12">
 	<div class="row">
-	<div class="col-md-8" style="border-right: .1px solid gray;">
+		<div class="col-md-2" style="border-right: .1px solid gray;border-bottom: .1px solid gray">
+			<select class="form-control mt-3 mb-2" name="type" style="border-radius:0%">
+				<option>FOOTBALL</option>
+				<option>BASKETBALL</option>
+			</select>
+			<div class="column">
+				<div class="row " style="border-top: .1px solid gray;border-bottom: .1px solid gray;">
+					<a href="{{url('/')}}" class="text-dark p-3" style="text-decoration: none;font-size:17px">HOME</a>
+					<hr>
+				</div>
+				<div class="row" style="border-bottom: .1px solid gray;">
+					<a href="{{url('live-now')}}" class="text-dark p-3" style="text-decoration: none;font-size:17px">LIVE NOW</a>
+					<hr>
+				</div>
+				<div class="row" style="border-bottom: .1px solid gray;">
+					<a href="{{url('upcoming')}}" class="text-dark p-3 " style="text-decoration: none;font-size:17px">UPCOMING</a>
+					<hr>
+				</div>
+				<div class="row" style="border-bottom: .1px solid gray;">
+					<a href="{{url('virtual-sport')}}" class="text-dark p-3 " style="text-decoration: none;font-size:17px">VIRTUAL SPORT</a>
+					<hr>
+				</div>
+				<div class="row" style="border-bottom: .1px solid gray;">
+					<a href="{{url('jackpot')}}" class="text-dark p-3 " style="text-decoration: none;font-size:17px">JACKPOT</a>
+					<hr>
+				</div>
+				<div class="row" style="border-bottom: .1px solid gray;">
+					<a href="{{url('popular')}}" class="text-dark p-3 " style="text-decoration: none;font-size:17px">POPULAR</a>
+					<hr>
+				</div>
+			</div>
+			<div class="column">
+				<h4 class="text-center font-weight-bold p-2">TOUNARMENTS</h4>
+			</div>
+		</div>
+	<div class="col-md-6" style="border-right: .1px solid gray;">
 	<div class="row justify-content-between" style="background-color: rgb(0,0,0);">
 		<div class="column" id="Col">
 <h2><a href="{{url('/')}}" style="text-decoration: none;"><i><span class="font-weight-bold text-white mx-2">bet</span><span class="font-weight-bold" style="color:lawngreen;margin-left: -10px">Pawa</span></i></a></h2>
