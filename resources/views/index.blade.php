@@ -17,8 +17,47 @@
 		display: none;
 
 	}
-	@media (min-width:500px){
+	@media (min-width:800px){
 		#slip{
+			display: block;
+		}
+	}
+	#side{
+		display: none;
+
+	}
+	
+	@media (min-width:800px){
+		#side{
+			display: block;
+		}
+	}
+	#top{
+		display: none;
+
+	}
+	
+	@media (max-width:800px){
+		#top{
+			display: block;
+		}
+	}
+	#Top{
+		display: block;
+
+	}
+	
+	@media (max-width:800px){
+		#Top{
+			display: none;
+		}
+	}
+	#more{
+		display: none;
+
+	}
+	@media (max-width:800px){
+		#more{
 			display: block;
 		}
 	}
@@ -27,9 +66,29 @@
 			/*background-color: red;*/
 
 	}
-	@media (max-width:500px){
+	@media (max-width:800px){
 		.betslip{
 			display: block;
+		}
+	}
+	#Search{
+		display:block;
+			/*background-color: red;*/
+
+	}
+	@media (max-width:800px){
+		#Search{
+			display: none;
+		}
+	}
+	#depo{
+		display:block;
+			/*background-color: red;*/
+
+	}
+	@media (max-width:800px){
+		#depo{
+			display: none;
 		}
 	}
 	/*#first:hover{
@@ -161,23 +220,32 @@
 <!-- <div class="col-md-12 d-flex "> -->
 
 		<div class="row ">
-			<h2 class="p-3"><a href="{{url('/')}}" style="text-decoration: none;"><i><span class="font-weight-bold text-white mx-2" style="font-size: 45px">bet</span><span class="font-weight-bold" style="color:lawngreen;margin-left: -10px;font-size: 45px">Pawa</span></i></a></h2>
-		<!-- <div class="col-md-5"></div> -->
+			<h2 class="p-2" id="Top"><a href="{{url('/')}}" style="text-decoration: none;"><i><span class="font-weight-bold text-white mx-2" style="font-size: 45px">bet</span><span class="font-weight-bold" style="color:lawngreen;margin-left: -10px;font-size: 45px">Pawa</span></i></a></h2>
+		 <div id="top">
+			<a href="#" class="text-white  mb-2 mt-5 p-2 font-weight-bold" data-toggle="modal" data-target="#Modal" style="font-size: 11px">SPORT</a>
+		<!-- modal -->
+		
+		<a href="{{url('virtual')}}" class="text-white mb-3 mt-3 m-3 p4 font-weight-bold" style="font-size: 11px">VIRTUAL</a>
+		<a href="{{url('jackpot')}}" class="text-white mb-3 mt-3 m-2 font-weight-bold" style="font-size: 11px">JACKPOT</a>
+		 </div>
 	</div>
+	<input type="search" class=" col-5 mt-3 mb-3" placeholder="Search team,league,tournament" id="Search">
 		<div class="row">
-			<a href="{{url('deposit')}}" class="mx-auto mt-4 p-2" style="text-decoration: none;"><a href="{{url('deposit')}}" style="font-size: 13px;margin-right: 5px" class="text-white mt-3 ">
+			<div id="depo">
+			<a href="{{url('deposit')}}" class="mx-auto" style="text-decoration: none;"><a href="{{url('deposit')}}" style="font-size: 13px;margin-right: 5px" class="text-white mt-4 font-weight-bold ">
 				@if(session('user'))
 					@foreach(session('user') as $id)
 					KSH {{$id['account']}}
 					@endforeach
 					@endif</a>
-			<a href="{{url('deposit')}}" name="deposit" class="btn btn-success mt-4 p-2 mb-5 " style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a>
+			<a href="{{url('deposit')}}" name="deposit" class="btn btn-success mt-3 mb-4 p-2 " style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a>
+			</div>
 		{{-- <p onclick="search()" class="text-white mb-3 mt-3 font-weight-bold" style="cursor: pointer;float: right;font-size: 11px">SEARCH</p> --}}
-		<a href="" class="text-white mb-3 mt-3 m-2 font-weight-bold p-3" data-toggle="modal" data-target="#menu" style="font-size: 20px">MENU</a>
+		<a href="" class="text-white  mt-2  font-weight-bold " data-toggle="modal" data-target="#menu" style="font-size: 20px">MENU</a>
 		<!-- <input type="submit" name="" class="btn mt-3 mb-4 mx-1 text-dark font-weight-bold" value="Slip {{0}}" data-toggle="modal" data-target="#myModal">
  -->        
  <!-- <div class="betslip"> -->
- <a href="#passwordReset" data-toggle="modal" style="background-color: white;font-size: 13px"  class="text-dark betslip btn text-white  mt-1 mb-2">Bets {{count((array)session('cart'))}}</a>
+ <a href="#passwordReset" data-toggle="modal" style="background-color: white;font-size: 13px"  class="text-dark betslip btn text-whit  mt-1 mb-5">Bets {{count((array)session('cart'))}}</a>
      	
  </div>
      <!-- </div> -->
@@ -191,7 +259,7 @@
 </div>
 <div class="container col-md-12">
 	<div class="row">
-		<div class="col-md-2" style="border-right: .1px solid gray;border-bottom: .1px solid gray">
+		<div class="col-md-2" id="side" style="border-right: .1px solid gray;border-bottom: .1px solid gray">
 			<select class="form-control mt-3 mb-2" name="type" style="border-radius:0%">
 				<option>FOOTBALL</option>
 				<option>BASKETBALL</option>
@@ -223,25 +291,26 @@
 				</div>
 			</div>
 			<div class="column">
-				<h4 class="text-center font-weight-bold p-2">TOUNARMENTS</h4>
+				<p class="text-center font-weight-bold p-2">TOUNARMENTS</p>
 			</div>
 		</div>
 	<div class="col-md-6" style="border-right: .1px solid gray;">
+		<div id="more">
 	<div class="row justify-content-between" style="background-color: rgb(0,0,0);">
-		{{-- <div class="column" id="Col">
+		<div class="column" id="Col">
 <h2><a href="{{url('/')}}" style="text-decoration: none;"><i><span class="font-weight-bold text-white mx-2">bet</span><span class="font-weight-bold" style="color:lawngreen;margin-left: -10px">Pawa</span></i></a></h2>
 <a href="{{url('deposit')}}" class="text-white mx-2" style="text-decoration: underline;"><i>M-PESA Pay Bill:290020</i></a>
-</div> --}}
+</div>
 <!-- <div class="account"> -->
 	<!-- <div class="row"> -->
-	{{-- <a href="{{url('deposit')}}" class="row mx-auto" style="text-decoration: none;"><a href="{{url('deposit')}}" style="font-size: 13px;margin-right: 5px" class="text-white mt-3 ">
+	<a href="{{url('deposit')}}" class="row mx-auto" style="text-decoration: none;"><a href="{{url('deposit')}}" style="font-size: 13px;margin-right: 5px" class="text-white mt-3 ">
 		@if(session('user'))
 			@foreach(session('user') as $id)
 			KSH {{$id['account']}}
 			@endforeach
 			@endif</a>
-	<a href="{{url('deposit')}}" name="deposit" class="btn btn-success mt-2 mb-5" style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a> --}}
-<!-- </div> -->
+	<a href="{{url('deposit')}}" name="deposit" class="btn btn-success mt-2 mb-5" style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a>
+</div>
 </div>
 <!-- </div> -->
 @if(session()->has('success'))
@@ -336,7 +405,7 @@ echo $date_added."  "."<a class='font-weight-bold'>" .$date."</a>";
 <div class="row mx-1"style="margin-top: -5px">
 	<p>Football {{$game['football_league']}}</p>
 </div>
-<div class="row" style="border-bottom: .1px solid gray;margin-top: -10px">
+<div class="row" style="border-bottom: .1px solid gray;margin-top: -10px d-flex justify-content-between">
 	<!-- <div class="col-md-3"> -->
 		<!-- <div class="col-md-12 "> -->
 			<form action="{{url('add/'.$game->id)}}" class="mb-2" id="gamesForm" method="get">
