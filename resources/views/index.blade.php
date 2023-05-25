@@ -165,7 +165,14 @@
 		<!-- <div class="col-md-5"></div> -->
 	</div>
 		<div class="row">
-		<p onclick="search()" class="text-white mb-3 mt-3 font-weight-bold" style="cursor: pointer;float: right;font-size: 11px">SEARCH</p>
+			<a href="{{url('deposit')}}" class="mx-auto mt-4 p-2" style="text-decoration: none;"><a href="{{url('deposit')}}" style="font-size: 13px;margin-right: 5px" class="text-white mt-3 ">
+				@if(session('user'))
+					@foreach(session('user') as $id)
+					KSH {{$id['account']}}
+					@endforeach
+					@endif</a>
+			<a href="{{url('deposit')}}" name="deposit" class="btn btn-success mt-4 p-2 mb-5 " style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a>
+		{{-- <p onclick="search()" class="text-white mb-3 mt-3 font-weight-bold" style="cursor: pointer;float: right;font-size: 11px">SEARCH</p> --}}
 		<a href="" class="text-white mb-3 mt-3 m-2 font-weight-bold p-3" data-toggle="modal" data-target="#menu" style="font-size: 20px">MENU</a>
 		<!-- <input type="submit" name="" class="btn mt-3 mb-4 mx-1 text-dark font-weight-bold" value="Slip {{0}}" data-toggle="modal" data-target="#myModal">
  -->        
@@ -221,19 +228,19 @@
 		</div>
 	<div class="col-md-6" style="border-right: .1px solid gray;">
 	<div class="row justify-content-between" style="background-color: rgb(0,0,0);">
-		<div class="column" id="Col">
+		{{-- <div class="column" id="Col">
 <h2><a href="{{url('/')}}" style="text-decoration: none;"><i><span class="font-weight-bold text-white mx-2">bet</span><span class="font-weight-bold" style="color:lawngreen;margin-left: -10px">Pawa</span></i></a></h2>
 <a href="{{url('deposit')}}" class="text-white mx-2" style="text-decoration: underline;"><i>M-PESA Pay Bill:290020</i></a>
-</div>
+</div> --}}
 <!-- <div class="account"> -->
 	<!-- <div class="row"> -->
-	<a href="{{url('deposit')}}" class="row mx-auto" style="text-decoration: none;"><a href="{{url('deposit')}}" style="font-size: 13px;margin-right: 5px" class="text-white mt-3 ">
+	{{-- <a href="{{url('deposit')}}" class="row mx-auto" style="text-decoration: none;"><a href="{{url('deposit')}}" style="font-size: 13px;margin-right: 5px" class="text-white mt-3 ">
 		@if(session('user'))
 			@foreach(session('user') as $id)
 			KSH {{$id['account']}}
 			@endforeach
 			@endif</a>
-	<a href="{{url('deposit')}}" name="deposit" class="btn btn-success mt-2 mb-5" style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a>
+	<a href="{{url('deposit')}}" name="deposit" class="btn btn-success mt-2 mb-5" style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a> --}}
 <!-- </div> -->
 </div>
 <!-- </div> -->
