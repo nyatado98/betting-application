@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GamesController;
+use App\Http\Controllers\DepositController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -72,3 +74,5 @@ Route::get('bet',[GamesController::class,'Bet']);
 Route::get('credit/{id}',[GamesController::class,'deposit']);
 // deposit when not logged in
 Route::get('credit_account',[GamesController::class,'deposit_account']);
+
+Route::get('/pay',[DepositController::class, 'stk']);
