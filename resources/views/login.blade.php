@@ -11,7 +11,7 @@
 		display: none;
 
 	}
-	@media (min-width:500px){
+	@media (min-width:800px){
 		#slip{
 			display: block;
 		}
@@ -21,7 +21,7 @@
 			/*background-color: red;*/
 
 	}
-	@media (max-width:500px){
+	@media (max-width:800px){
 		.betslip{
 			display: block;
 		}
@@ -181,7 +181,7 @@
 </div>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4" id="slip">
 <div class="row">
 		<p class="mx-2">Not loggedin - <a class="text-dark" style="text-decoration: underline;" href="{{url('register')}}">Join Now</a><span> or </span><a style="text-decoration: underline;color: lawngreen" href="{{url('login')}}">Log in</a></p>
 	</div>

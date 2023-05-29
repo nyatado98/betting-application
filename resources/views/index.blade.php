@@ -240,22 +240,22 @@
             <!-- <div class="col-md-12 d-flex "> -->
 
             <div class="row ">
-                <h2 class="p-2" id="Top"><a href="{{ url('/') }}"
+                {{-- <h2 class="p-2" id="Top"><a href="{{ url('/') }}"
                         style="text-decoration: none;"><i><span class="font-weight-bold text-white mx-2"
                                 style="font-size: 45px">bet</span><span class="font-weight-bold"
-                                style="color:lawngreen;margin-left: -10px;font-size: 45px">Pawa</span></i></a></h2>
-                <div id="top">
-                    <a href="#" class="text-white  mb-2 mt-5 p-2 font-weight-bold" data-toggle="modal"
+                                style="color:lawngreen;margin-left: -10px;font-size: 45px">Pawa</span></i></a></h2> --}}
+                {{-- <div id="top"> --}}
+                    <a href="#" class="text-white  mb-2 mt-3  font-weight-bold" data-toggle="modal"
                         data-target="#Modal" style="font-size: 11px">SPORT</a>
                     <!-- modal -->
 
-                    <a href="{{ url('virtual') }}" class="text-white mb-3 mt-3 m-3 p4 font-weight-bold"
+                    <a href="{{ url('virtual') }}" class="text-white mb-3 mt-3 m-2 font-weight-bold"
                         style="font-size: 11px">VIRTUAL</a>
                     <a href="{{ url('jackpot') }}" class="text-white mb-3 mt-3 m-2 font-weight-bold"
                         style="font-size: 11px">JACKPOT</a>
-                </div>
+                {{-- </div> --}}
             </div>
-            <input type="search" class=" col-5 mt-3 mb-3" placeholder="Search team,league,tournament"
+            <input type="search" class=" col-5 mt-2 mb-3" placeholder="Search team,league,tournament"
                 id="Search">
             <div class="row">
                 <div id="depo">
@@ -268,12 +268,12 @@
                                 @endforeach
                             @endif
                         </a>
-                        <a href="{{ url('deposit') }}" name="deposit" class="btn btn-success mt-3 mb-4 p-2 "
-                            style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a>
+                        {{-- <a href="{{ url('deposit') }}" name="deposit" class="btn btn-success mt-3 mb-4 p-2 "
+                            style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a> --}}
                 </div>
                 {{-- <p onclick="search()" class="text-white mb-3 mt-3 font-weight-bold" style="cursor: pointer;float: right;font-size: 11px">SEARCH</p> --}}
-                <a href="" class="text-white  mt-2  font-weight-bold " data-toggle="modal"
-                    data-target="#menu" style="font-size: 20px">MENU</a>
+                <a href="" class="text-white  mb-3 mt-3 m-2 font-weight-bold " data-toggle="modal"
+                    data-target="#menu" style="font-size: 11px">MENU</a>
                 <!-- <input type="submit" name="" class="btn mt-3 mb-4 mx-1 text-dark font-weight-bold" value="Slip {{ 0 }}" data-toggle="modal" data-target="#myModal">
  -->
                 <!-- <div class="betslip"> -->
@@ -337,7 +337,8 @@
                 </div>
             </div>
             <div class="col-md-6" style="border-right: .1px solid gray;">
-                <div id="more">
+				{{-- changes made here --}}
+                <div id="mor">
                     <div class="row justify-content-between" style="background-color: rgb(0,0,0);">
                         <div class="column" id="Col">
                             <h2><a href="{{ url('/') }}" style="text-decoration: none;"><i><span

@@ -13,7 +13,7 @@
 		display: none;
 
 	}
-	@media (min-width:500px){
+	@media (min-width:800px){
 		#slip{
 			display: block;
 		}
@@ -23,7 +23,7 @@
 			/*background-color: red;*/
 
 	}
-	@media (max-width:500px){
+	@media (max-width:800px){
 		.betslip{
 			display: block;
 		}
