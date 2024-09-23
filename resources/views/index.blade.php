@@ -5,6 +5,8 @@
     <title>Bet Small,Win Big</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
     <link href={{ asset('bootstrap/css/bootstrap.min.css') }} rel="stylesheet">
     <script src={{ asset('bootstrap/jquery/jquery-3.5.1.min.js') }}></script>
     <style type="text/css">
@@ -112,7 +114,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: #293136">
     <!-- sports modal -->
     <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -235,73 +237,168 @@
         </div>
     </div>
     <!-- end of modals -->
-    <div class="container-fluid sticky-top"style="border-bottom: .1px solid white;background-color: rgb(0,0,0);">
-        <div class="row d-flex justify-content-between mx-2 ">
-            <!-- <div class="col-md-12 d-flex "> -->
-
-            <div class="row ">
-                {{-- <h2 class="p-2" id="Top"><a href="{{ url('/') }}"
-                        style="text-decoration: none;"><i><span class="font-weight-bold text-white mx-2"
-                                style="font-size: 45px">bet</span><span class="font-weight-bold"
-                                style="color:lawngreen;margin-left: -10px;font-size: 45px">Pawa</span></i></a></h2> --}}
-                {{-- <div id="top"> --}}
-                    <a href="#" class="text-white  mb-2 mt-3  font-weight-bold" data-toggle="modal"
-                        data-target="#Modal" style="font-size: 11px">SPORT</a>
-                    <!-- modal -->
-
-                    <a href="{{ url('virtual') }}" class="text-white mb-3 mt-3 m-2 font-weight-bold"
-                        style="font-size: 11px">VIRTUAL</a>
-                    <a href="{{ url('jackpot') }}" class="text-white mb-3 mt-3 m-2 font-weight-bold"
-                        style="font-size: 11px">JACKPOT</a>
-                {{-- </div> --}}
-            </div>
-            <input type="search" class=" col-5 mt-2 mb-3" placeholder="Search team,league,tournament"
-                id="Search">
-            <div class="row">
-                <div id="depo">
-                    <a href="{{ url('deposit') }}" class="mx-auto" style="text-decoration: none;"><a
-                            href="{{ url('deposit') }}" style="font-size: 13px;margin-right: 5px"
-                            class="text-white mt-4 font-weight-bold ">
-                            @if (session('user'))
-                                @foreach (session('user') as $id)
-                                    KSH {{ $id['account'] }}
-                                @endforeach
-                            @endif
+  {{-- header --}}
+  @include('header')
+    <div class="container col-md-8 bg-white">
+        <div class="row">
+            <div class="col-md-8 p-0" style="overflow: auto;border-right:1px solid grey;height:86.5vh">
+                    <h4 class="text-dark font-weight-bold " style="font-size:22px;margin:0px;padding:10px;background-color: rgb(235, 234, 234)"><i class="fa fa-football"></i>&nbsp;&nbsp;Football</h4>
+                    <div class="container">
+                        <a href="{{url('event/id=12345')}}">
+                        <div class="row" style="padding-left:10px;">
+                            <p style="margin: 2px">2:30pm <span class="font-weight-bold">Fri 29/09</span></p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px" class="font-weight-bold">PFC Spartak Plzen</p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px" class="font-weight-bold">PFC Montana 1921</p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px">Footabll/Bulgaria/Second Prof.League</p>
+                        </div>
                         </a>
-                        {{-- <a href="{{ url('deposit') }}" name="deposit" class="btn btn-success mt-3 mb-4 p-2 "
-                            style="color:black;font-weight: bold;background-color: lawngreen;font-size: 12px">DEPOSIT</a></a> --}}
-                </div>
-                {{-- <p onclick="search()" class="text-white mb-3 mt-3 font-weight-bold" style="cursor: pointer;float: right;font-size: 11px">SEARCH</p> --}}
-                <a href="" class="text-white  mb-3 mt-3 m-2 font-weight-bold " data-toggle="modal"
-                    data-target="#menu" style="font-size: 11px">MENU</a>
-                <!-- <input type="submit" name="" class="btn mt-3 mb-4 mx-1 text-dark font-weight-bold" value="Slip {{ 0 }}" data-toggle="modal" data-target="#myModal">
- -->
-                <!-- <div class="betslip"> -->
-                <a href="#passwordReset" data-toggle="modal" style="background-color: white;font-size: 13px"
-                    class="text-dark betslip btn text-whit  mt-1 mb-5">Bets {{ count((array) session('cart')) }}</a>
-
+                        <div class="row" style="padding-left:10px;flex-wrap:nowrap">
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>1</span>
+                                <span>1.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>X</span>
+                                <span>5.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>2</span>
+                                <span>11.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-1" style="border:1px solid #252a2d;">
+                                <div class="row justify-content-center p-1">
+                                <span>+46</span>
+                                </div>
+                            </button>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                    <div class="container">
+                        <div class="row" style="padding-left:10px;">
+                            <p style="margin: 2px">2:30pm <span class="font-weight-bold">Fri 29/09</span></p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px" class="font-weight-bold">PFC Spartak Plzen</p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px" class="font-weight-bold">PFC Montana 1921</p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px">Footabll/Bulgaria/Second Prof.League</p>
+                        </div>
+                        <div class="row" style="padding-left:10px;;flex-wrap:nowrap">
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>1</span>
+                                <span>1.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>X</span>
+                                <span>5.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>2</span>
+                                <span>11.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-1" style="border:1px solid #252a2d;">
+                                <div class="row justify-content-center p-1">
+                                <span>+46</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="container">
+                        <div class="row" style="padding-left:10px;">
+                            <p style="margin: 2px">2:30pm <span class="font-weight-bold">Fri 29/09</span></p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px" class="font-weight-bold">PFC Spartak Plzen</p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px" class="font-weight-bold">PFC Montana 1921</p>
+                        </div>
+                        <div class="row"  style="padding-left:10px;">
+                            <p style="margin: 2px">Footabll/Bulgaria/Second Prof.League</p>
+                        </div>
+                        <div class="row" style="padding-left:10px;;flex-wrap:nowrap">
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>1</span>
+                                <span>1.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>X</span>
+                                <span>5.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-3" style="border:1px solid #252a2d;margin-right:5px">
+                                <div class="row justify-content-between p-1">
+                                    <span>2</span>
+                                <span>11.45</span>
+                                </div>
+                            </button>
+                            <button class="col-md-1" style="border:1px solid #252a2d;">
+                                <div class="row justify-content-center p-1">
+                                <span>+46</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                    <hr>
             </div>
-            <!-- </div> -->
+            <div class="col-md-4">
+                <div class="row p-2">
+                    <p>Not loggedin - <a href={{url('register')}}>Join Now</a>&nbsp; or <a href={{url('login')}} c>Login</a></p>
+                </div>
+                <div class="row">
+                    <button class="col-md-6 p-2" style="border: none;background-color:grey">Sport</button>
+                    <button class="col-md-6 p-2" style="border: none">Virtuals</button>
+                </div>
+                <div class="row font-weight-bold p-2">
+                    Booking code:
+                </div>
+                <div class="row p-2">
+                    <input type="text" class="col-md-8" name="" id="">
+                    <button class="text-white col-md-3" style="background-color: black;margin-left:5px">Load</button>
+                </div>
+                <div class="row justify-content-center">
+                    <p class="font-weight-bold">Betslip is empty</p>
+                </div>
+                <p class="d-flex bg-dark text-white p-2 justify-content-center">LEARN HOW TO PLACE BET</p>
+            </div>
         </div>
     </div>
-    <div class="container col-md-12" id="search" style="display: none;background-color: rgb(0,0,0);">
+    <div class="container col-md-8">
         <div class="row">
-            <input type="search" name="search" placeholder="Team or competition....."
-                class="form-control col-md-9 m-2">
-            <input type="submit" name="search" class="btn bg-dark text-white col-md-1 font-weight-bold m-2"
-                style="border:1px solid white" value="SEARCH">
-        </div>
-    </div>
-    <div class="container col-md-12">
-        <div class="row">
-            <div class="col-md-2" id="side"
+            <div class="col-md-2" id=""
                 style="border-right: .1px solid gray;border-bottom: .1px solid gray">
                 <select class="form-control mt-3 mb-2" name="type" style="border-radius:0%">
                     <option>FOOTBALL</option>
                     <option>BASKETBALL</option>
                 </select>
                 <div class="column">
-                    <div class="row " style="border-top: .1px solid gray;border-bottom: .1px solid gray;">
+                    <div class="row " style="">
                         <a href="{{ url('/') }}" class="text-dark p-3"
                             style="text-decoration: none;font-size:17px">HOME</a>
                         <hr>
@@ -336,7 +433,7 @@
                     <p class="text-center font-weight-bold p-2">TOUNARMENTS</p>
                 </div>
             </div>
-            <div class="col-md-6" style="border-right: .1px solid gray;">
+            <div class="col-md-6">
 				{{-- changes made here --}}
                 <div id="mor">
                     <div class="row justify-content-between" style="background-color: rgb(0,0,0);">
