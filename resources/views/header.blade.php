@@ -45,8 +45,8 @@
         <!-- </div> -->
     </div>
 </div>
-<div class="container col-md-8" style="position: sticky;z-index:99;height:50px;top:55px;background-color: #293136;">
-    <div class="row justify-content-around p-3" style="flex-wrap: nowrap;overflow-x:auto">
+<div class="container col-md-8" style="position: sticky;z-index:99;height:35px;top:55px;background-color: #293136;">
+    <div class="row justify-content-around p-2" style="flex-wrap: nowrap;overflow-x:auto">
         <a href="" class="font-weight-bold" style="font-size:12px;color:#aaaeb0"><i></i>&nbsp;&nbsp;SPORTS</a>
         <a href="" class="font-weight-bold" style="font-size:12px;color:#aaaeb0"><i></i>&nbsp;&nbsp;CASINO</a>
         <a href="" class="font-weight-bold" style="font-size:12px;color:#aaaeb0"><i></i>&nbsp;&nbsp;VIRTUAL</a>
