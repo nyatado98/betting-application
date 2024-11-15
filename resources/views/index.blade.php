@@ -122,12 +122,14 @@
 
             }
         }
-#betslip_sid{
-    position: sticky;
-    top: 14vh;
-    right: 0;
-    z-index: 99;
-}
+
+        #betslip_sid {
+            position: sticky;
+            top: 14vh;
+            right: 0;
+            z-index: 99;
+        }
+
         /*#first:hover{
   background-color: lawngreen;
  }*/
@@ -1074,25 +1076,25 @@
                     </div>
 </body>
 <script>
-// function totalAm(amount){
-//         console.log("called ",amount)
-//         localStorage.setItem('amount_placed',amount)
-//     }
-//     document.getElementById('amount_placed').addEventListener('change', function (event) {
-//         console.log("called ",200)
-//     })
+    // function totalAm(amount){
+    //         console.log("called ",amount)
+    //         localStorage.setItem('amount_placed',amount)
+    //     }
+    //     document.getElementById('amount_placed').addEventListener('change', function (event) {
+    //         console.log("called ",200)
+    //     })
 </script>
 <script>
     $(document).on('input', '#amount_placed', function() {
-    let newValue = $(this).val();
-    localStorage.setItem('amount_placed',newValue)
-    console.log("New amount placed:", newValue);
-    $("#amount_placed").attr("focused", "true");
-    updateUserArea();
-    // Your code to handle the change
-    // e.g., update a calculated field, send an AJAX request, etc.
-});
-  
+        let newValue = $(this).val();
+        localStorage.setItem('amount_placed', newValue)
+        console.log("New amount placed:", newValue);
+        $("#amount_placed").attr("focused", "true");
+        updateUserArea();
+        // Your code to handle the change
+        // e.g., update a calculated field, send an AJAX request, etc.
+    });
+
     // remove from cart
     function removeSelection(e) {
         console.log('cliked')
@@ -1182,7 +1184,7 @@
         console.log('function called');
     })
 
-    
+
     // update the view when the selection butons are clicked
     function updateUserArea() {
         var cart_count = <?php echo count((array) session('cart')); ?>;
@@ -1223,16 +1225,20 @@
                         var total_fixed = total.toFixed(2);
                         // console.log(total_fixed)
                         var placed_amount = localStorage.getItem('amount_placed');
-                        tax = (20 * (placed_amount * total))/100;
+                        tax = (20 * (placed_amount * total)) / 100;
                         var tax_fixed = tax.toFixed(2);
                         Amount_payout = (total * placed_amount) - (tax);
                         var amount_fixed = Amount_payout.toFixed(2);
                         game_codes = `
-                     <div class="row justify-content-around p-1">
-                        <p>Sport&nbsp;&nbsp;<span class="cart-count">${betslipLength}</span></p>
-                        <p>Virtual 0</p>
+                     <div class="row justify-content-around">
+                        <div class="col-md-6" style="height:50px;">
+                            <p style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:black">Sport&nbsp;&nbsp;<span class="cart-count" style="height:30px;width:30px;border-radius:;background-color:#9ec800">${betslipLength}</span></p>
+                            </div>
+                            <div class="col-md-6" style="height:50px;background-color:rgb(219, 219, 219)">
+                                  <p style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:black">Virtual 0</p>
+                                </div>
                     </div>
-                    <div class="row justify-content-between"
+                    <div class="row mt-1 justify-content-between p-1"
                         style="border-bottom: .1px solid grey;border-top: .1px solid grey">
 
                         <div class="mb-2 mt-2">
@@ -1300,36 +1306,49 @@
                             <span>Payout:</span>
                             <span>${amount_fixed}</span>
                             </div>
+                            <div class="row" style="background-color: rgb(219, 219, 219);padding:0px 15px">
+                                ${session_user != '' ? `<p class="btn text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="place_bet">PLACE BET</p>` : `<p class="btn text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="login">LOGIN T0 PLACE BET</p> <div class="p-0 row justify-content-center"><span>Dont have an account? <a href=register>Join Now.</a></span></div>` }
+                                </div>
             `;
                     }
                 }
                 // end of the loop
                 if (cartLength == 0) {
                     cart_area = `
-                 <div class="row mx-auto">
-                        <div class="col-md-12 p-0">
-                                <p class="p-0 m-0">Booking Code :</p>
-                                <div class="row">
-                                    <input type="text" name="code" class="col-md-9 p-0 form-control" style="border-bottom-right-radius: 0px;border-top-right-radius:0px;border-right:none">
-                                    <p class="col-md-3 btn bg-dark text-white m-0 font-weight-bold text-center" style="border-bottom-left-radius: 0px;border-top-left-radius:0px;border-left:none" id="load_slip">Load</p>
+                    <div class="row justify-content-around">
+                        <div class="col-md-6"  style="height:50px;background-color:rgb(219, 219, 219)">
+                            <a href="">
+                            <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:black">Sports</span>
+                                                        </a>
+                            </div>
+<div class="col-md-6"  style="height:50px;">
+                        <a href="">
+                            <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:black">Virtuals</span>
+                                                        </a>
+                            </div>
+                        </div>
+                 <div class="container mx-auto mt-2"  style="background-color:rgb(219, 219, 219)">
+                        <div class="row">
+                                <p class="p-1 m-0">Booking Code</p>
                                 </div>
+                                <div class="row p-1">
+                                    <input type="text" name="code" class="p-1 form-control" style="border-radius:0px">
+                                </div>
+                                <div class="row p-1">
+                                                                        <p class="btn font-weight-bold text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="load_slip">LOAD</p>
+                                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h6 class="text-center p-2">Betslip is empty</h6>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="text-center p-2">Betslip is empty</h5>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 p-0 justify-content-center">
-                            <a id="faqs" class="btn col-12 bg-dark font-weight-bold text-white m-0">LEARN HOW TO
+                            <a id="faqs" class="btn bg-dark text-white col-md-12" style="border-radius:0px">LEARN HOW TO
                                 PLACE BET</a>
-                        </div>
-                    </div>
                 `;
                 } else {
                     cart_area = `
@@ -1339,10 +1358,10 @@
                 `;
                 }
                 $('.body-part').empty();
-                $('.body-part').append(cart_area);
+                $('.body-part').html(cart_area);
 
                 $('.footer-odds').empty();
-                $('.footer-odds').append(footer_odds);
+                $('.footer-odds').html(footer_odds);
             }
         });
         if (session_user != '') {
@@ -1352,12 +1371,16 @@
             <h4>KSH ${session_json[0].account}</h4>
             `;
         } else {
-            header_area = `<div class="row">
-                        <p class="mx-2">Not loggedin - <a class="text-dark" style="text-decoration: underline;"
+            header_area = `<div class="row p-2" style="border-bottom:.1px solid grey">
+                        <p class="mx-2" style="font-size:15px">Not loggedin - <a class="text-dark" style="text-decoration: underline;"
                                 href="{{ url('register') }}">Join
                                 Now</a><span> or </span><a class="text-dark" style="text-decoration: underline;"
                                 href="{{ url('login') }}">Log in</a></p>
-                    </div>`;
+                    </div>
+                    <div class="row">
+                        
+                        </div>
+                    `;
         }
         // update header-part
         $('.header-part').empty();
@@ -1386,7 +1409,7 @@
             <h4>KSH ${session_json[0].account}</h4>
             `;
             } else {
-                login_area = `<div class="row">
+                login_area = `<div class="row" style="border-bottom:1px solid grey">
                         <p class="mx-2">Not loggedin - <a class="text-dark" style="text-decoration: underline;"
                                 href="{{ url('register') }}">Join
                                 Now</a><span> or </span><a class="text-dark" style="text-decoration: underline;"
@@ -1462,13 +1485,16 @@
                 <div id="slip">
                     <div class="row mx-auto ">
                         <div class="col-md-12 p-0">
-                                <p class="p-0 m-0">Booking Code :</p>
+                                <p class="p-0 m-0">Booking Code </p>
                                 <div class="row">
                                     <input type="text" name="code" class="col-md-9 p-0 form-control" style="border-bottom-right-radius: 0px;border-top-right-radius:0px;border-right:none">
                                     <p class="col-md-3 btn bg-dark text-white m-0 font-weight-bold text-center" style="border-bottom-left-radius: 0px;border-top-left-radius:0px;border-left:none" id="load_slip">Load</p>
                                 </div>
                         </div>
                     </div>
+                    <div class="row">
+                        sports
+                        </div>
                     <div class="row">
                         <div class="col-md-12">
                             <h5 class="text-center p-2">Betslip is empty</h5>
