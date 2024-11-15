@@ -63,7 +63,8 @@ Route::get('bets/active/{id}',[GamesController::class,'view'])->name('bets/activ
 //add to cart
 Route::get('add/{id}',[GamesController::class,'addToCart']);
 //romove game from cart
-Route::post('remove',[GamesController::class,'delete'])->name('remove');
+// Route::get('remove',[GamesController::class,'delete'])->name('remove');
+Route::get('/remove',[GamesController::class,'delete']);
 //clear the entire cart
 Route::get('delete',[GamesController::class,'clearCart'])->name('delete');
 // place bet route when logged in
@@ -76,3 +77,6 @@ Route::get('credit/{id}',[GamesController::class,'deposit']);
 Route::get('credit_account',[GamesController::class,'deposit_account']);
 
 Route::get('/pay',[DepositController::class, 'stk']);
+
+// fetch cart every .5 secs
+Route::get('/cart/count',[GamesController::class, 'fetchCart']);

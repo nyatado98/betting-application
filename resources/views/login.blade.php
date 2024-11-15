@@ -117,7 +117,7 @@
                         <form method="get" action={{url('login_process')}}>
                             @csrf
                             @if (session()->has('message'))
-                                <p class="" style="color: lawngreen">{{ session()->get('message') }}</p>
+                                <p class="" style="color: #9ce800">{{ session()->get('message') }}</p>
                             @endif
                             @if (session()->has('error'))
                                 <p class="" style="color: red">{{ session()->get('error') }}</p>

@@ -32,7 +32,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: #293136">
     <!-- sports modal -->
     <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -111,15 +111,16 @@
     <!-- end of modals -->
     @include('header')
 
-    <div class="container col-md-8">
+    <div class="container col-md-8" style="background-color: white;height:89vh">
         <div class="row" style="border-bottom: .1px solid gray;">
-            <div class="col-md-8" style="border-right: .1px solid gray;">
-                <div class="container">
-                    <div class="row">
-                        <h5 class="mx-3" style="color: black">Register Now</h5>
-                    </div>
+            <div class="col-md-8" style="border-right: .1px solid gray;border-bottom: .1px solid gray;height:89vh">
+                <div class="container mt-4" style="border: 1px solid rgb(204, 203, 203)">
+                    <div class="row d-flex" style="flex-wrap: nowrap">
+						<a href={{url('login')}} class="col-md-6 text-center p-3" style="border: none;background-color:#f4f5f0">Login</a>
+						<a href={{url('register')}} class="col-md-6 text-center p-3" style="border: none">Join Now</a>
+					</div>
                     <div class="col-md-12">
-                        <form method="get" action="{{ url('register_user') }}">
+                        <form method="get" action={{ url('register_user') }}>
                             @csrf
                             <label>Mobile number</label>
                             <input type="number" name="phone_number" class="form-control <?php echo $errors->has('phone_number') ? 'border border-danger' : ''; ?>"
@@ -135,58 +136,43 @@
                             @endif
                             <label>4 digits(0-9)</label>
                             <input type="submit" name="submit" value="JOIN NOW"
-                                style="border-radius: 0%;background-color: lawngreen;color: black;border:none"
+                                style="border-radius: 0%;background-color: #9ce800;color: #252a2d;border:none"
                                 class="font-weight-bold form-control">
                         </form>
                     </div>
+					<div class="row justify-content-center mt-3 d-flex" style="flex-wrap: nowrap">
+						<p>Already have an account? </p>&nbsp;<a href={{url('login')}} class="font-weight-bold" style="color: #252a2d;text-decoration:underline">LOG IN</a>
+					</div>
                 </div>
             </div>
 
             <div class="col-md-4" id="slip">
-                <div class="row">
-                    <p class="mx-2">Not loggedin - <a style="text-decoration: underline;color: lawngreen"
-                            href="{{ url('register') }}">Join Now</a><span> or </span><a class="text-dark"
-                            style="text-decoration: underline;" href="{{ url('login') }}">Log in</a></p>
+				<div class="row p-2" style="border-bottom: .1px solid grey">
+                    <p>Not loggedin - <a href={{ url('register') }}>Join Now</a>&nbsp; or <a href={{ url('login') }}
+                            c>Login</a></p>
                 </div>
-                <div class="row d-flex justify-content-around mt-2" style="border-top: .1px solid grey">
-                    <h4 class="text-center font-weight-bold">Sport {{ count((array) session('cart')) }}</h4>
-                    <div style="">
-                        <h4 class="text-center font-weight-bold" style="">Virtual</h4>
-                    </div>
+                <div class="row">
+                    <button class="col-md-6 p-2" style="border: none;background-color:grey">Sport
+                        {{ count((array) session('cart')) }}</button>
+                    <button class="col-md-6 p-2" style="border: none">Virtuals</button>
                 </div>
                 <!-- php -->
                 <?php if (count((array)session('cart'))<=0){
 		?>
                 <div id="slip">
-                    <div class="row mx-auto">
-                        <div class="col-md-12">
-                            <form>
-                                <label>Booking Code :</label>
-                                <div class="row">
-                                    <input type="text" name="code" class="col-md-8 form-control">
-                                    <input type="submit" name="load"
-                                        class="col-md-3 btn bg-dark text-white font-weight-bold mx-1" value="Load">
-                                </div>
-                            </form>
-                        </div>
+                    <div class="row font-weight-bold p-2">
+                        Booking code:
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h5 class="text-center p-2">Betslip is empty</h5>
-                        </div>
+                    <div class="row p-2">
+                        <input type="text" class="col-md-8" name="" id="">
+                        <button class="text-white col-md-3"
+                            style="background-color: black;margin-left:5px">Load</button>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                        </div>
+                    <div class="row justify-content-center">
+                        <p class="font-weight-bold">Betslip is empty</p>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href=faqs class="btn bg-dark font-weight-bold text-white form-control">LEARN HOW TO
-                                PLACE BET</a>
-                        </div>
-                    </div>
+                    <p class="d-flex bg-dark text-white p-2 justify-content-center">LEARN HOW TO PLACE BET</p>
                 </div>
-                <!-- php -->
                 <?php
 }else{
 ?>
@@ -498,50 +484,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="row justify-content-around" style="">
-            <h5>
-                <a href="{{ url('bets/active') }}" name="submit" class="btn m-1"
-                    style="background-color: black;color: white;border-radius: 0%;">HELP</a>
-            </h5>
-        </div>
-        <div class="row justify-content-around" style="background-color: black">
-            <h5 style="text-align: center;">
-                <a href="" class="text-white" style="font-size: 17x">Football</a>
-                <a href="" class="text-white" style="font-size: 17x">Basketball</a>
-            </h5>
-        </div>
-        <div class="row justify-content-around" style="background-color: black">
-            <h5 style="text-align: center;">
-                <a href="" class="text-white" style="font-size: 17x">facebook</a>
-                <a href="" class="text-white" style="font-size: 17x">Twitter</a>
-                <a href="" class="text-white" style="font-size: 17x">Instagram</a>
-            </h5>
-        </div>
-        <div class="row justify-content-around" style="background-color: black">
-            <h5 style="text-align: center;">
-                <a href="" class="text-white" style="font-size: 17x">My bets</a>
-                <a href="" class="text-white" style="font-size: 17x">Statements</a>
-                <a href="" class="text-white" style="font-size: 17x">Deposit</a>
-                <a href="" class="text-white" style="font-size: 17x">Withdraw</a>
-                <a href="" class="text-white" style="font-size: 17x">Log out</a>
-            </h5>
-        </div>
-        <div class="row justify-content-around" style="background-color: black">
-            <h5 style="text-align: center;">
-                <a href="" class="text-white" style="font-size: 17x">Home</a>
-                <a href="" class="text-white" style="font-size: 17x">About</a>
-                <a href="" class="text-white" style="font-size: 17x">Terms</a>
-                <a href="" class="text-white" style="font-size: 17x">help</a>
-                <a href="" class="text-white" style="font-size: 17x">News</a>
-            </h5>
-        </div>
-        <div class="row justify-content-around" style="background-color: black">
-            <h5 style="text-align: center;">
-                <p style="color: gray">Developed by Dan Ndong &copy <?php echo date('Y'); ?></p>
-            </h5>
         </div>
     </div>
 </body>
