@@ -294,8 +294,8 @@
                             <p style="margin: 2px">Footaball&nbsp;{{ $game['football_league'] }}</p>
                         </div>
 
-                        <div class="row" style="padding-left:10px;flex-wrap:nowrap">
-                            <div class="col-11 col-md-11">
+                        <div class="row" style="padding-left:10px;flex-wrap:nowrap;border-bottom:.1px solid grey">
+                            <div class="col-11 col-md-11 mb-2">
                                 <div class="row" style="flex-wrap:nowrap">
                                     <button id="<?php echo $game['id']; ?>/<?php echo $game['one_odds']; ?>/1" class=" col-md-4 selection"
                                         style="border:1px solid #252a2d;margin-right:5px;cursor:pointer">
@@ -320,7 +320,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="col-1 col-md-1 more_btn">
+                            <div class="col-1 col-md-1 more_btn mb-2">
                                 <button class="col-12 col-md-12" style="border:1px solid #252a2d;cursor:pointer;">
                                     <div class="row justify-content-center p-1">
                                         <span>+46</span>
@@ -329,7 +329,6 @@
                             </div>
 
                         </div>
-                        <hr>
                     @endforeach
 
                 </div>
@@ -1091,6 +1090,10 @@
         console.log("New amount placed:", newValue);
         $("#amount_placed").attr("focused", "true");
         updateUserArea();
+         // Add event listener to store focus state
+  document.getElementById('amount_placed').addEventListener('focus', () => {
+    inputField.dataset.keepFocus = "true";
+  });
         // Your code to handle the change
         // e.g., update a calculated field, send an AJAX request, etc.
     });
@@ -1265,7 +1268,7 @@
                             <div class="column">
                                 <p class="m-0 font-weight-bold" style="font-size: 12px;text-decoration:underline">
                                    ${cart[id].team_1} - ${cart[id].team_2}
-                                </p>
+                                </p> 
                                 <div class="col-md-12 ">
                                     <div class="row justify-content-between">
                                         <!-- <input type="text" name="team_2" class="col-md-3" style="border:none" value="'.$details['team_2'].'" readonly> -->
@@ -1307,7 +1310,7 @@
                             <span>${amount_fixed}</span>
                             </div>
                             <div class="row" style="background-color: rgb(219, 219, 219);padding:0px 15px">
-                                ${session_user != '' ? `<p class="btn text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="place_bet">PLACE BET</p>` : `<p class="btn text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="login">LOGIN T0 PLACE BET</p> <div class="p-0 row justify-content-center"><span>Dont have an account? <a href=register>Join Now.</a></span></div>` }
+                                ${session_user != '' ? `<p class="btn text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="place_bet">PLACE BET</p>` : `<p class="btn text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="login">LOGIN TO PLACE BET</p> <div class="p-0 row justify-content-center"><span>Dont have an account? <a href=register>Join Now.</a></span></div>` }
                                 </div>
             `;
                     }
