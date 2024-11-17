@@ -1090,10 +1090,10 @@
         console.log("New amount placed:", newValue);
         $("#amount_placed").attr("focused", "true");
         updateUserArea();
-         // Add event listener to store focus state
-  document.getElementById('amount_placed').addEventListener('focus', () => {
-    inputField.dataset.keepFocus = "true";
-  });
+        // Add event listener to store focus state
+        document.getElementById('amount_placed').addEventListener('focus', () => {
+            inputField.dataset.keepFocus = "true";
+        });
         // Your code to handle the change
         // e.g., update a calculated field, send an AJAX request, etc.
     });
@@ -1187,7 +1187,9 @@
         console.log('function called');
     })
 
-
+    // updateUserArea({
+    //     preventDefault: () => {}
+    // })
     // update the view when the selection butons are clicked
     function updateUserArea() {
         var cart_count = <?php echo count((array) session('cart')); ?>;
@@ -1266,9 +1268,11 @@
                         </span>
                         <div class="col-md-11" style="padding-left:5px">
                             <div class="column">
+                                <a href="">
                                 <p class="m-0 font-weight-bold" style="font-size: 12px;text-decoration:underline">
                                    ${cart[id].team_1} - ${cart[id].team_2}
                                 </p> 
+                                </a>
                                 <div class="col-md-12 ">
                                     <div class="row justify-content-between">
                                         <!-- <input type="text" name="team_2" class="col-md-3" style="border:none" value="'.$details['team_2'].'" readonly> -->
@@ -1335,10 +1339,10 @@
                                 <p class="p-1 m-0">Booking Code</p>
                                 </div>
                                 <div class="row p-1">
-                                    <input type="text" name="code" class="p-1 form-control" style="border-radius:0px">
+                                    <input type="text" name="code" class="p-1 form-control" placeholder="Enter booking code" style="border-radius:0px">
                                 </div>
                                 <div class="row p-1">
-                                                                        <p class="btn font-weight-bold text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="load_slip">LOAD</p>
+                                    <p class="btn font-weight-bold text-center form-control" style="border-radius:0px;background-color:#9ce800;color:black" id="load_slip">LOAD</p>
                                     </div>
                     </div>
                     <div class="row">
@@ -1365,6 +1369,10 @@
 
                 $('.footer-odds').empty();
                 $('.footer-odds').html(footer_odds);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error:', error);
+                console.log('Response:', xhr.responseText);
             }
         });
         if (session_user != '') {

@@ -11,8 +11,9 @@ use App\Models\User;
 use App\Models\Bet;
 use App\Models\Betslip;
 
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
-// use Illuminate\Support\Facades\App;
 
 
 
@@ -412,16 +413,22 @@ class GamesController extends Controller
 	}
 
 	public function fetchCart(){
-		 // Assuming session('cart') holds the cart items
-		 $cart = session()->get('cart');
-		 $cartCount = count($cart); // Get the cart count
-		 $odds = 1;
-		 foreach ($cart as $item) {
-			if (isset($item['odds'])) {
-				$odds *= floatval($item['odds']); // Convert odds to float and multiply
-			}
-		}
-		 return response()->json(['cartCount' => $cartCount,'odds'=>$odds,'cart'=>$cart]); // Return as JSON
+
+		try {
+			$cart = (array) Session::get('cart', []);
+            $cartCount = count((array) Session::get('cart', []));
+			$odds = 1;
+			foreach ($cart as $item) {
+			   if (isset($item['odds'])) {
+				   $odds *= floatval($item['odds']); // Convert odds to float and multiply
+			   }
+		   }
+		   return response()->json(['cartCount' => $cartCount,'odds'=>$odds,'cart'=>$cart]); // Return as JSON
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            // \Log::error($e->getMessage());
+            return response()->json(['error' => 'An error occurred while fetching the cart count.'], 500);
+        }
 	}
 	public function delete(Request $request)
 	{
